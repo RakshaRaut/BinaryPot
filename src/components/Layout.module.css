@@ -1,0 +1,25 @@
+.appWrapper {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 220px; /* Sidebar width */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageContainer {
+  padding: 24px 28px;
+  flex: 1;
+}
+
+@media (max-width: 820px) {
+  .mainContent {
+    margin-left: 0;
+  }
+}
