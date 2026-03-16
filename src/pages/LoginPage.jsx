@@ -1,17 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../services/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('analyst');
   const [password, setPassword] = useState('demo1234');
   const [error, setError] = useState(false);
-  const { login } = useAuth();
+  const { login, user } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const success = login(username, password);
-    if (!success) {
+    if (success) {
+      navigate('/');
+    } else {
       setError(true);
       setTimeout(() => setError(false), 1500);
     }
