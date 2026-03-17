@@ -61,7 +61,7 @@ const LoginPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <p className={styles.loginHint}>// demo: analyst / demo1234</p>
+           
             <button type="submit" className={styles.loginBtn}>AUTHENTICATE →</button>
           </form>
         </div>
